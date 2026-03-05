@@ -1,0 +1,221 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "hi",
+        "hello",
+        "hey",
+        "good morning",
+        "good evening",
+        "hi shopnest",
+        "hello there"
+      ],
+      "responses": [
+        "Hello! How can I help you today?",
+        "Hi there! Welcome to ShopNest.",
+        "Hey! Ask me anything about products, orders, or delivery."
+      ]
+    },
+    {
+      "tag": "delivery",
+      "patterns": [
+        "when will my order arrive",
+        "delivery time",
+        "how long does delivery take",
+        "order delivery status",
+        "how many days for delivery",
+        "delivery process",
+        "shipping time",
+        "is delivery fast"
+      ],
+      "responses": [
+        "Orders are usually delivered within 3–5 business days.",
+        "You can track your delivery from the My Orders page.",
+        "Delivery time depends on your location and product availability."
+      ]
+    },
+    {
+      "tag": "return",
+      "patterns": [
+        "return policy",
+        "how to return product",
+        "can I return my order",
+        "refund policy",
+        "return my item",
+        "refund status",
+        "how do I get refund"
+      ],
+      "responses": [
+        "You can return products within 7 days of delivery.",
+        "Refunds are processed within 3–5 working days after return approval.",
+        "Returned products must be unused and in original condition."
+      ]
+    },
+    {
+      "tag": "payment",
+      "patterns": [
+        "payment options",
+        "how can I pay",
+        "online payment",
+        "payment methods",
+        "is payment safe",
+        "secure payment"
+      ],
+      "responses": [
+        "We support online payments via Razorpay.",
+        "All payments are secure and encrypted.",
+        "You can pay using UPI, cards, or net banking."
+      ]
+    },
+    {
+      "tag": "cod",
+      "patterns": [
+        "is cash on delivery available",
+        "cash on delivery",
+        "can I pay after delivery",
+        "cod available"
+      ],
+      "responses": [
+        "Yes, Cash on Delivery is available for selected locations.",
+        "You can choose Cash on Delivery during checkout."
+      ]
+    },
+    {
+      "tag": "products",
+      "patterns": [
+        "what products do you sell",
+        "available products",
+        "electronics items",
+        "what can I buy",
+        "product categories"
+      ],
+      "responses": [
+        "We sell laptops, mobiles, earphones, and electronic accessories.",
+        "ShopNest offers a wide range of electronic products."
+      ]
+    },
+    {
+      "tag": "laptops",
+      "patterns": [
+        "show laptops",
+        "laptop products",
+        "gaming laptops",
+        "student laptops",
+        "best laptop"
+      ],
+      "responses": [
+        "You can explore all laptops in the Shop section.",
+        "We offer laptops suitable for students, professionals, and gamers."
+      ]
+    },
+    {
+      "tag": "mobiles",
+      "patterns": [
+        "show mobiles",
+        "mobile phones",
+        "best smartphone",
+        "android phones",
+        "latest mobiles"
+      ],
+      "responses": [
+        "We offer the latest smartphones at competitive prices.",
+        "Explore all mobiles from the Shop page."
+      ]
+    },
+    {
+      "tag": "earphones",
+      "patterns": [
+        "earphones",
+        "headphones",
+        "wireless earphones",
+        "bluetooth headphones"
+      ],
+      "responses": [
+        "We have wired and wireless earphones available.",
+        "Explore earphones and audio accessories in the Shop section."
+      ]
+    },
+    {
+      "tag": "orders",
+      "patterns": [
+        "my orders",
+        "order history",
+        "show my orders",
+        "where is my order",
+        "order status"
+      ],
+      "responses": [
+        "You can view your orders in the My Orders section.",
+        "Order details and tracking are available after login."
+      ]
+    },
+    {
+      "tag": "account",
+      "patterns": [
+        "do I need to login",
+        "create account",
+        "sign up",
+        "login issue",
+        "forgot password"
+      ],
+      "responses": [
+        "You need to log in to place orders and track them.",
+        "You can sign up easily using your email address."
+      ]
+    },
+    {
+      "tag": "admin",
+      "patterns": [
+        "admin dashboard",
+        "manage products",
+        "manage orders",
+        "admin features"
+      ],
+      "responses": [
+        "Admins can manage products, users, orders, and analytics.",
+        "The admin dashboard provides sales and revenue insights."
+      ]
+    },
+    {
+      "tag": "security",
+      "patterns": [
+        "is my data safe",
+        "security",
+        "is shopnest secure",
+        "data protection"
+      ],
+      "responses": [
+        "Your data is secured using JWT authentication and encryption.",
+        "We follow best security practices to protect user information."
+      ]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": [
+        "bye",
+        "goodbye",
+        "see you",
+        "thanks",
+        "thank you"
+      ],
+      "responses": [
+        "You're welcome! Happy shopping with ShopNest.",
+        "Thanks for visiting ShopNest. Have a great day!"
+      ]
+    },
+    {
+      "tag": "fallback",
+      "patterns": [
+        "asdfgh",
+        "random text",
+        "I don't know",
+        "help me"
+      ],
+      "responses": [
+        "Sorry, I didn't understand that. Can you rephrase?",
+        "I'm here to help! Please ask about products, orders, or delivery."
+      ]
+    }
+  ]
+}
