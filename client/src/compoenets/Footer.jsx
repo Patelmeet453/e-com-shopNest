@@ -30,7 +30,7 @@ const Footer = () => {
         <div>
           <h4 className="text-white font-semibold mb-3">Support</h4>
           <p className="text-sm">Email: support@shopnest.com</p>
-          <p className="text-sm">Phone: +91 98765 43210</p>
+          <p className="text-sm">Phone: +91 95129 80453</p>
         </div>
       </div>
 
