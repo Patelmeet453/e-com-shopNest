@@ -57,7 +57,7 @@ const Cart = () => {
           </p>
 
           <button
-            onClick={() => navigate("/store")}
+            onClick={() => navigate("/shop")}
             className="
       mt-6 px-6 py-3 rounded-xl
       bg-emerald-600 hover:bg-emerald-700

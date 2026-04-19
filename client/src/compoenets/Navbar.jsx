@@ -17,6 +17,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { logoutUser } from "../features/auth/authSlice";
 import ProfileAvatar from "./ProfileAvatar";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -38,6 +39,7 @@ const Navbar = () => {
   const handleLogout = () => {
     dispatch(logoutUser()); // ✅ clears cookie + redux
     setOpen(false);
+    toast.success("Logout Successfully")
   };
 
   return (

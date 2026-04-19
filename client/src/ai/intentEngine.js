@@ -50,6 +50,12 @@ export const getIntent = (text) => {
       auth: false,
     },
     {
+      name: "ORDERS",
+      patterns: ["order", "orders", "my orders", "purchase", "history"],
+      route: "/orders",
+      auth: true,
+    },
+    {
       name: "CONTACT",
       patterns: [
         "contact",

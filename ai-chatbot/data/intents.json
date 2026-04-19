@@ -216,6 +216,152 @@
         "Sorry, I didn't understand that. Can you rephrase?",
         "I'm here to help! Please ask about products, orders, or delivery."
       ]
+    },
+    {
+      "tag": "product_price",
+      "patterns": [
+        "price of laptop",
+        "price of mobile",
+        "how much does this cost",
+        "product price",
+        "show price",
+        "cost of phone",
+        "laptop price",
+        "mobile price"
+      ],
+      "responses": [
+        "You can see the price of each product on its product details page.",
+        "Prices are displayed on the product page along with available offers."
+      ]
+    },
+    {
+      "tag": "product_availability",
+      "patterns": [
+        "is this product available",
+        "product availability",
+        "is it in stock",
+        "do you have stock",
+        "is laptop available",
+        "mobile stock",
+        "earphones available"
+      ],
+      "responses": [
+        "Product availability is shown on the product page.",
+        "If the product is in stock you can order it immediately."
+      ]
+    },
+    {
+      "tag": "order_cancel",
+      "patterns": [
+        "cancel my order",
+        "how to cancel order",
+        "can I cancel my purchase",
+        "stop my order",
+        "cancel order request"
+      ],
+      "responses": [
+        "Orders can be cancelled before they are shipped.",
+        "You can cancel orders from the My Orders section."
+      ]
+    },
+    {
+      "tag": "order_tracking",
+      "patterns": [
+        "track my order",
+        "track delivery",
+        "where is my package",
+        "shipping status",
+        "order tracking"
+      ],
+      "responses": [
+        "You can track your order from the My Orders page.",
+        "Tracking details appear once your order is shipped."
+      ]
+    },
+    {
+      "tag": "discount",
+      "patterns": [
+        "any discount",
+        "available offers",
+        "sale on laptops",
+        "discount on mobiles",
+        "promo code",
+        "special deals"
+      ],
+      "responses": [
+        "You can check the latest offers and discounts on the Shop page.",
+        "Some products may have special discounts available."
+      ]
+    },
+    {
+      "tag": "shipping_cost",
+      "patterns": [
+        "shipping charges",
+        "delivery cost",
+        "is shipping free",
+        "how much for delivery",
+        "shipping fee"
+      ],
+      "responses": [
+        "Shipping cost depends on your location and product type.",
+        "Some products qualify for free shipping."
+      ]
+    },
+    {
+      "tag": "product_comparison",
+      "patterns": [
+        "compare laptops",
+        "compare phones",
+        "which laptop is better",
+        "difference between phones",
+        "compare products"
+      ],
+      "responses": [
+        "You can compare specifications like RAM, processor, and battery to choose the best product.",
+        "Product details pages show specifications to help you compare products."
+      ]
+    },
+    {
+      "tag": "support",
+      "patterns": [
+        "contact support",
+        "customer service",
+        "help center",
+        "support email",
+        "technical issue"
+      ],
+      "responses": [
+        "You can contact ShopNest support through the Contact Us page.",
+        "Our support team will help you resolve your issue."
+      ]
+    },
+    {
+      "tag": "website_info",
+      "patterns": [
+        "what is shopnest",
+        "about shopnest",
+        "tell me about shopnest",
+        "shopnest website",
+        "what does shopnest do"
+      ],
+      "responses": [
+        "ShopNest is an ecommerce platform where you can buy electronics like laptops, mobiles, and accessories.",
+        "ShopNest provides a secure online shopping experience with fast delivery and easy returns."
+      ]
+    },
+    {
+      "tag": "recommendation",
+      "patterns": [
+        "recommend laptop",
+        "suggest mobile phone",
+        "best laptop for students",
+        "best phone under budget",
+        "recommend electronics"
+      ],
+      "responses": [
+        "You can explore our latest laptops and mobiles in the Shop section.",
+        "Check the product categories to find items that suit your needs."
+      ]
     }
   ]
 }

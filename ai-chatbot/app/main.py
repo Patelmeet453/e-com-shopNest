@@ -22,8 +22,19 @@ def root():
     return {"message": "ShopNest AI Chatbot is running"}
   
 @app.post("/chat")
+# def chat(req: ChatRequest):
+#     reply = get_chatbot_reply(req.message)
+#     return {"response": reply}
+@app.post("/chat")
 def chat(req: ChatRequest):
     reply = get_chatbot_reply(req.message)
-    return {"response": reply}
+
+    if isinstance(reply, dict):
+        return reply
+    else:
+        return {
+            "type": "text",
+            "message": reply
+        }
   
   

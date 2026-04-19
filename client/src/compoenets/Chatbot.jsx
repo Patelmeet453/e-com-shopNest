@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { MessageCircle, X, Send } from "lucide-react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const ChatBot = () => {
   const [open, setOpen] = useState(false);
@@ -15,6 +16,8 @@ const ChatBot = () => {
   ]);
 
   const messagesEndRef = useRef(null);
+
+  const navigate = useNavigate();
 
   /* =========================
      AUTO SCROLL TO BOTTOM
@@ -42,10 +45,32 @@ const ChatBot = () => {
         { headers: { "Content-Type": "application/json" } },
       );
 
-      setMessages((prev) => [
-        ...prev,
-        { from: "bot", text: res.data.response },
-      ]);
+      // setMessages((prev) => [
+      //   ...prev,
+      //   { from: "bot", text: res.data.response },
+      // ]);
+
+      const data = res.data;
+
+// show message
+setMessages((prev) => [
+  ...prev,
+  { from: "bot", text: data.message },
+]);
+
+// 🔥 PRODUCT NAVIGATION
+if (data.type === "product" && data.productId) {
+  setTimeout(() => {
+    navigate(`/product/${data.productId}`);
+  }, 1000);
+}
+
+// 🔥 CATEGORY NAVIGATION (NEW)
+if (data.type === "category" && data.category) {
+  setTimeout(() => {
+    navigate(`/shop?category=${data.category}`);
+  }, 1000);
+}
     } catch (err) {
       setMessages((prev) => [
         ...prev,

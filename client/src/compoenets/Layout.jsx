@@ -10,7 +10,7 @@ const Layout = () => {
       <Navbar />
 
       {/* PAGE CONTENT */}
-      <main className="">
+      <main className="min-h-[70vh]">
         <Outlet />
       </main>
 

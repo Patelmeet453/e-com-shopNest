@@ -20,10 +20,10 @@ const AdminDashboard = () => {
       {activeTab === "create" && <CreateProductForm />}
       {activeTab === "list" && <ProductManagement />}
       {activeTab === "analytics" && (
-        {/* <AdminAnalytics /> */}
+        <AdminAnalytics />
       )}
       {activeTab === "orders" && (
-        {/* <AdminOrders /> */}
+        <AdminOrders />
       )}
       {activeTab === "users" && <UserManagement />}
     </div>

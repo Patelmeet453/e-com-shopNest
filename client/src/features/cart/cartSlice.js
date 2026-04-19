@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import api from "../../api/axios";
+import toast from "react-hot-toast";
 
 /* FETCH CART */
 export const fetchCart = createAsyncThunk("cart/fetch", async () => {
@@ -16,6 +17,7 @@ export const addToCart = createAsyncThunk(
       { productId, qty },
       { withCredentials: true },
     );
+    toast.success("Product Added Successfully")
     return data;
   },
 );

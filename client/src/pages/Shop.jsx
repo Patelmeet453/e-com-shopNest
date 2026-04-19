@@ -1,13 +1,25 @@
 import { useSelector } from "react-redux";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 const Shop = () => {
   const navigate = useNavigate();
   const products = useSelector((s) => s.products.list);
 
+  const [searchParams] = useSearchParams();
+
   const [category, setCategory] = useState("all");
   const [sort, setSort] = useState("");
+
+  /* ========================
+     SYNC CATEGORY FROM URL
+  ======================== */
+  useEffect(() => {
+    const urlCategory = searchParams.get("category") || "all";
+    setCategory(urlCategory);
+  }, [searchParams]);
+
+   const brandParam = searchParams.get("brand");
 
   /* ========================
      FILTER LOGIC
@@ -16,6 +28,13 @@ const Shop = () => {
 
   if (category !== "all") {
     filteredProducts = filteredProducts.filter((p) => p.category === category);
+  }
+
+  // ✅ BRAND FILTER (NEW)
+  if (brandParam) {
+    filteredProducts = filteredProducts.filter((p) =>
+      p.name.toLowerCase().includes(brandParam)
+    );
   }
 
   if (sort === "low") {
