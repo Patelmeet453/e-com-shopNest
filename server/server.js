@@ -22,7 +22,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://e-com-shopnest.onrender.com"],
+    origin: ["http://localhost:5173","https://e-com-shop-nest.vercel.app"],
     credentials: true, // ❗ REQUIRED for cookies
   }),
 );
