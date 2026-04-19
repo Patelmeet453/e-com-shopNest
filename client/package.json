@@ -12,6 +12,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.11.2",
     "@tailwindcss/vite": "^4.1.18",
+    "@tippyjs/react": "^4.2.6",
     "axios": "^1.13.3",
     "compromise": "^14.14.5",
     "dotenv": "^17.2.3",
