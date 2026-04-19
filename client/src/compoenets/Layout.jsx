@@ -20,7 +20,7 @@ const Layout = () => {
       </div>
 
       <div className="fixed bottom-6 right-12 z-50">
-         <ChatBot />
+         {/* <ChatBot /> */}
       </div>
       
       <div className="relative bottom-0">
