@@ -17,7 +17,7 @@ const Layout = () => {
       </main>
 
       {/* VOICE NAV FLOATING BUTTON */}
-    <div className="fixed bottom-24 right-6 z-50">
+    <div className="fixed bottom-12 right-6 z-50">
   <Tippy
     content="🎤  Use voice to navigate pages or find products by name or category"
       placement="auto"   // ✅ auto adjust
@@ -31,9 +31,9 @@ const Layout = () => {
   </Tippy>
 </div>
 
-      <div className="fixed bottom-6 right-12 z-50">
-         {/* <ChatBot /> */}
-      </div>
+      {/* <div className="fixed bottom-6 right-12 z-50">
+         <ChatBot />
+      </div> */}
       
       <div className="relative bottom-0">
         <Footer />
