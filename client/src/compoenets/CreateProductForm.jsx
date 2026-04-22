@@ -11,6 +11,9 @@ const CreateProductForm = () => {
   const dispatch = useDispatch();
   const { loading, success, error } = useSelector((state) => state.products);
 
+  const { user } = useSelector((state) => state.auth);
+  const isDemo = user?.email === "demo@gmail.com";
+
   const [imagePreview, setImagePreview] = useState(null);
 
   const [form, setForm] = useState({
@@ -77,6 +80,11 @@ const CreateProductForm = () => {
   /* SUBMIT */
   const submitHandler = (e) => {
     e.preventDefault();
+
+     if (isDemo) {
+      toast.error("Demo mode: You cannot create products");
+      return;
+    }
 
     const specsObject = {};
     form.specs.forEach((s) => {

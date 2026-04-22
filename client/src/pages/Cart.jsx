@@ -69,42 +69,44 @@ const Cart = () => {
           </button>
         </div>
       ) : (
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* LEFT: CART ITEMS */}
           <div className="md:col-span-2 space-y-4">
             {items.map((item) => (
               <div
                 key={item.product._id}
                 className="
-                  flex gap-4 items-center
+                  flex flex-col sm:flex-row gap-4
                   bg-[#020617]
                   border border-gray-700
                   rounded-2xl p-4
                 "
               >
                 {/* IMAGE */}
-                <img
-                  src={item.product.image}
-                  alt={item.product.name}
-                  className="w-24 h-24 object-contain rounded-lg"
-                />
+                <div className="flex justify-center sm:block">
+                  <img
+                    src={item.product.image}
+                    alt={item.product.name}
+                    className="w-24 h-24 object-contain rounded-lg"
+                  />
+                </div>
 
                 {/* DETAILS */}
-                <div className="flex-1">
+                <div className="flex-1 text-center sm:text-left">
                   <h3 className="font-semibold">{item.product.name}</h3>
                   <p className="text-emerald-400 font-medium">
                     ₹{item.product.price}
                   </p>
 
-                  {/* QTY CONTROLS */}
-                  <div className="flex items-center gap-3 mt-2">
+                  {/* QTY */}
+                  <div className="flex justify-center sm:justify-start items-center gap-3 mt-2">
                     <button
                       onClick={() =>
                         dispatch(
                           updateQty({
                             productId: item.product._id,
                             qty: item.qty - 1,
-                          }),
+                          })
                         )
                       }
                       disabled={item.qty === 1}
@@ -121,7 +123,7 @@ const Cart = () => {
                           updateQty({
                             productId: item.product._id,
                             qty: item.qty + 1,
-                          }),
+                          })
                         )
                       }
                       className="px-3 py-1 bg-gray-800 rounded"
@@ -131,18 +133,22 @@ const Cart = () => {
                   </div>
                 </div>
 
-                {/* ITEM TOTAL */}
-                <div className="text-right">
+                {/* RIGHT SIDE */}
+                <div className="flex sm:flex-col items-center sm:items-end justify-between sm:justify-start gap-3">
+
+                  {/* PRICE */}
                   <p className="font-semibold">
                     ₹{item.product.price * item.qty}
                   </p>
 
+                  {/* REMOVE */}
                   <button
                     onClick={() => dispatch(removeFromCart(item.product._id))}
-                    className="text-red-400 mt-2 flex items-center gap-1"
+                    className="text-red-400 flex items-center gap-1"
                   >
                     <Trash2 size={16} /> Remove
                   </button>
+
                 </div>
               </div>
             ))}

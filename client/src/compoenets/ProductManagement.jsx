@@ -6,6 +6,7 @@ import {
 } from "../features/product/productSlice.js";
 import { Trash2, Pencil } from "lucide-react";
 import EditProductModal from "../model/EditProductModal.jsx";
+import toast from "react-hot-toast";
 
 const ProductManagement = () => {
   const [editProduct, setEditProduct] = useState(null);
@@ -13,12 +14,20 @@ const ProductManagement = () => {
   const dispatch = useDispatch();
   const { list, loading } = useSelector((state) => state.products);
 
+  const user = useSelector((state) => state.auth.user);
+  const isDemo = user?.email === "demo@gmail.com";
+
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
 
   const deleteHandler = (id) => {
-    if (confirm("Are you sure you want to delete this product?")) {
+    if (isDemo) {
+      toast.error("Demo mode: You cannot delete products");
+      return;
+    }
+
+    if (confirm("Are you sure?")) {
       dispatch(deleteProduct(id));
     }
   };
@@ -89,7 +98,13 @@ const ProductManagement = () => {
                     <button
                       className="p-2 rounded-lg bg-blue-600/20 text-blue-400 hover:bg-blue-600/40"
                       title="Edit (next step)"
-                      onClick={() => setEditProduct(product)}
+                      onClick={() => {
+                        if (isDemo) {
+                          toast.error("Demo mode: You cannot edit products");
+                          return;
+                        }
+                        setEditProduct(product);
+                      }}
                     >
                       <Pencil size={16} />
                     </button>

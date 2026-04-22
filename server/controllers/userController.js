@@ -13,6 +13,9 @@ export const getUsers = async (req, res, next) => {
 
 /* CREATE USER (ADMIN) */
 export const createUser = async (req, res, next) => {
+  if (req.user.email === "demo@gmail.com") {
+    return res.status(403).json({ message: "Demo mode - edit disabled" });
+  }
   try {
     const { name, email, password, role } = req.body;
 
@@ -44,6 +47,9 @@ export const createUser = async (req, res, next) => {
 
 /* UPDATE USER */
 export const updateUser = async (req, res, next) => {
+  if (req.user.email === "demo@gmail.com") {
+    return res.status(403).json({ message: "Demo mode - edit disabled" });
+  }
   try {
     const user = await User.findById(req.params.id);
     if (!user) return res.status(404).json({ message: "User not found" });
@@ -62,6 +68,9 @@ export const updateUser = async (req, res, next) => {
 
 export const blockUser = async (req, res, next) => {
   try {
+    if (req.user.email === "demo@gmail.com") {
+      return res.status(403).json({ message: "Demo mode - edit disabled" });
+    }
     // ❌ Admin trying to block themselves
     if (req.user._id.toString() === req.params.id) {
       return res.status(400).json({
@@ -87,6 +96,9 @@ export const blockUser = async (req, res, next) => {
 
 /* DELETE USER */
 export const deleteUser = async (req, res, next) => {
+  if (req.user.email === "demo@gmail.com") {
+    return res.status(403).json({ message: "Demo mode - edit disabled" });
+  }
   try {
     await User.findByIdAndDelete(req.params.id);
     res.json({ message: "User deleted" });

@@ -6,11 +6,13 @@ import {
   toggleBlockUser,
 } from "../features/user/userSlice";
 import { Trash2, ShieldBan } from "lucide-react";
+import toast from "react-hot-toast";
 
 const UserManagement = () => {
   const dispatch = useDispatch();
   const { list, loading } = useSelector((s) => s.users);
   const { user: currentUser } = useSelector((s) => s.auth);
+  const isDemo = currentUser?.email === "demo@gmail.com";
 
   useEffect(() => {
     dispatch(fetchUsers());
@@ -62,20 +64,24 @@ const UserManagement = () => {
                   <td className="p-4 flex gap-3">
                     <button
                       disabled={currentUser?._id === user._id}
-                      onClick={() =>
+                      onClick={() => {
+                        if (isDemo) {
+                          toast.error("Demo mode: You cannot block users");
+                          return;
+                        }
+
                         dispatch(
                           toggleBlockUser({
                             id: user._id,
                             block: !user.isBlocked,
-                          }),
-                        )
-                      }
+                          })
+                        );
+                      }}
                       className={`
                         p-2 rounded
-                        ${
-                          currentUser?._id === user._id
-                            ? "bg-gray-700 text-gray-500 cursor-not-allowed"
-                            : "bg-yellow-600/20 text-yellow-400 hover:bg-yellow-600/40"
+                        ${currentUser?._id === user._id
+                          ? "bg-gray-700 text-gray-500 cursor-not-allowed"
+                          : "bg-yellow-600/20 text-yellow-400 hover:bg-yellow-600/40"
                         }
                       `}
                       title={
@@ -91,8 +97,14 @@ const UserManagement = () => {
 
                     <button
                       onClick={() => {
-                        if (confirm("Delete user?"))
+                        if (isDemo) {
+                          toast.error("Demo mode: You cannot delete users");
+                          return;
+                        }
+
+                        if (confirm("Delete user?")) {
                           dispatch(deleteUser(user._id));
+                        }
                       }}
                       className="p-2 rounded bg-red-600/20 text-red-400"
                     >

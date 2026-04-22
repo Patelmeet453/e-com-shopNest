@@ -30,11 +30,10 @@ const Navbar = () => {
 
   const linkClass = ({ isActive }) =>
     `flex items-center gap-2 px-3 py-2 rounded-md text-sm transition
-     ${
-       isActive
-         ? "bg-emerald-600 text-white"
-         : "text-gray-300 hover:text-white hover:bg-gray-800"
-     }`;
+     ${isActive
+      ? "bg-emerald-600 text-white"
+      : "text-gray-300 hover:text-white hover:bg-gray-800"
+    }`;
 
   const handleLogout = () => {
     dispatch(logoutUser()); // ✅ clears cookie + redux
@@ -51,7 +50,7 @@ const Navbar = () => {
         </Link>
 
         {/* DESKTOP MENU */}
-        <div className="hidden md:flex items-center gap-3">
+        <div className="hidden lg:flex items-center gap-3">
           <NavLink to="/" className={linkClass}>
             <Home size={16} /> Home
           </NavLink>
@@ -139,7 +138,7 @@ const Navbar = () => {
         {/* MOBILE TOGGLE */}
         <div className="flex item-center space-x-2">
           <button
-            className="md:hidden text-gray-300"
+            className="lg:hidden text-gray-300"
             onClick={() => setOpen(!open)}
           >
             {open ? <X size={22} /> : <Menu size={22} />}
@@ -190,7 +189,7 @@ const Navbar = () => {
 
       {/* MOBILE MENU */}
       {open && (
-        <div className="md:hidden border-t border-gray-800 bg-gray-900 px-6 py-4 space-y-3">
+        <div className="lg:hidden border-t border-gray-800 bg-gray-900 px-6 py-4 space-y-3">
           <NavLink onClick={() => setOpen(false)} to="/" className={linkClass}>
             <Home size={16} /> Home
           </NavLink>

@@ -12,6 +12,9 @@ export const getProducts = async (req, res, next) => {
 
 export const createProduct = async (req, res, next) => {
   try {
+    if (req.user.email === "demo@gmail.com") {
+      return res.status(403).json({ message: "Demo mode - edit disabled" });
+    }
     // 1️⃣ Upload image to Cloudinary
     const result = await cloudinary.v2.uploader.upload(req.file.path);
 
@@ -46,6 +49,9 @@ export const createProduct = async (req, res, next) => {
 
 export const updateProduct = async (req, res, next) => {
   try {
+    if (req.user.email === "demo@gmail.com") {
+      return res.status(403).json({ message: "Demo mode - edit disabled" });
+    }
     const product = await Product.findById(req.params.id);
 
     if (!product) {
@@ -78,6 +84,9 @@ export const updateProduct = async (req, res, next) => {
 };
 export const deleteProduct = async (req, res, next) => {
   try {
+    if (req.user.email === "demo@gmail.com") {
+      return res.status(403).json({ message: "Demo mode - edit disabled" });
+    }
     await Product.findByIdAndDelete(req.params.id);
     res.json({ message: "Product deleted" });
   } catch (error) {
