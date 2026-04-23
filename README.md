@@ -115,15 +115,6 @@ CLOUDINARY_API_SECRET=your_secret
 
 ---
 
-## 📸 Screenshots
-
-* Home Page
-* Product Page
-* Cart Page
-* Admin Dashboard
-
----
-
 ## 🌟 Highlights
 
 * Clean and modern UI design
